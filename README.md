@@ -67,3 +67,28 @@ If you would like to reach out to the maintainers, come talk to us in the `#oaut
 ## Contributing
 
 Please see our [Contributing](CONTRIBUTING.md) guidelines. For releasing see our [release creation guide](RELEASE.md).
+
+
+
+## Acceldata specific changes and development
+### Set up local development environment
+1. Install go version 1.19+
+2. Install docker
+3. Clone the repo
+
+4. Download dependencies
+```bash
+go mod download
+```
+
+5. Run httpbin locally. I running it locally in docker. Note the port number on the local host. The same is used in upstream command line parameters in next step:
+```bash
+docker run -p 3080:80 kennethreitz/httpbin
+```
+
+6. Set following command line variables
+```bash
+--upstream=http://localhost:3080 --provider=oidc --client-id=odic-demo --email-domain=* --client-secret=zg5cclWArJmeGgzpjGmLI8VwNQrmPeYH --redirect-url=http://localhost:4180/oauth2/callback --oidc-issuer-url=https://accounts.sanjog.kaas01.acceldata.one/auth/realms/customer-oidc --cookie-secret=c16e6a04af387d98e4c23d0e498bc4d3 --whitelist-domain=accounts.sanjog.kaas01.acceldata.one
+```
+
+Note: Using the details given my Sanoj here. Alternatively, we can set to our own kaas env. 
