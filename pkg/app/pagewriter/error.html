@@ -82,7 +82,7 @@
       <div class="column">
         <form method="GET" action="{{.ProxyPrefix}}/sign_in">
           <input type="hidden" name="rd" value="{{.Redirect}}">
-          <button type="submit" class="button is-primary is-fullwidth">Sign in</button>
+          <button type="submit" class="button is-primary ad-sign-in-button is-fullwidth">Sign in</button>
         </form>
       </div>
     </div>
@@ -94,8 +94,6 @@
 <footer class="footer has-text-grey has-background-light is-size-7">
   <div class="content has-text-centered">
     {{ if eq .Footer "-" }}
-    {{ else if eq .Footer ""}}
-    <p>Secured with <a href="https://github.com/oauth2-proxy/oauth2-proxy#oauth2_proxy" class="has-text-grey">OAuth2 Proxy</a> version {{.Version}}</p>
     {{ else }}
     <p>{{.Footer}}</p>
     {{ end }}

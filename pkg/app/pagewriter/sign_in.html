@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Sign In</title>
     <link rel="stylesheet" href="{{.ProxyPrefix}}/static/css/bulma.min.css">
+    <link rel="stylesheet" href="{{.ProxyPrefix}}/static/css/acceldata.css">
 
     <style>
       body {
@@ -59,7 +60,7 @@
           {{ if .SignInMessage }}
           <p class="block">{{.SignInMessage}}</p>
           {{ end}}
-          <button type="submit" class="button block is-primary">Sign in with {{.ProviderName}}</button>
+          <button type="submit" class="button block is-primary ad-sign-in-button">Sign in with {{.ProviderName}}</button>
       </form>
 
       {{ if .CustomLogin }}
@@ -81,7 +82,7 @@
             <input class="input" type="password" placeholder="********" name="password" id="password">
           </div>
         </div>
-        <button class="button is-primary">Sign in</button>
+        <button class="button is-primary ad-sign-in-button">Sign in</button>
       </form>
       {{ end }}
 
@@ -119,8 +120,6 @@
   <footer class="footer has-text-grey has-background-light is-size-7">
     <div class="content has-text-centered">
     	{{ if eq .Footer "-" }}
-    	{{ else if eq .Footer ""}}
-    	<p>Secured with <a href="https://github.com/oauth2-proxy/oauth2-proxy#oauth2_proxy" class="has-text-grey">OAuth2 Proxy</a> version {{.Version}}</p>
     	{{ else }}
     	<p>{{.Footer}}</p>
     	{{ end }}
